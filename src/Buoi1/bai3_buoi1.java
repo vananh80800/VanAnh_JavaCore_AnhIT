@@ -1,7 +1,7 @@
 package Buoi1;
 
-//Diện tích và chu vi hình chữ nhật
 public class bai3_buoi1 {
+    //Diện tích và chu vi hình chữ nhật
     public static void main(String[] args) {
         double width = 5.0;   // chiều rộng
         double height = 10.0; // chiều dài

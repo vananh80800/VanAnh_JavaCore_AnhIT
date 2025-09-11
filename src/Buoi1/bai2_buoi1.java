@@ -1,7 +1,7 @@
 package Buoi1;
 
-//Hoán đổi 2 biến a và b không dùng biến trung gian
 public class bai2_buoi1 {
+    //Hoán đổi 2 biến a và b không dùng biến trung gian
     public static void main(String[] args) {
         int a = 5;
         int b = 10;
