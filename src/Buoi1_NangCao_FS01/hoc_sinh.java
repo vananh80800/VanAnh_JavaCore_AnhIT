@@ -1,4 +1,4 @@
-package NangCao_FS01;
+package Buoi1_NangCao_FS01;
 
 public class hoc_sinh {
     // Biến instance
