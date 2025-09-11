@@ -43,7 +43,6 @@ public class Bai4 {
                 System.out.println("Toán tử không hợp lệ!");
                 break;
         }
-
         sc.close();
     }
 }

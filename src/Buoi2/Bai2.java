@@ -42,7 +42,6 @@ public class Bai2 {
                 System.out.println("Không có trong menu");
                 break;
         }
-
         sc.close();
     }
 }

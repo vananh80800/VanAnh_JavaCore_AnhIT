@@ -49,7 +49,6 @@ public class Bai3 {
                 System.out.println("Tháng không hợp lệ!");
                 break;
         }
-
         sc.close();
     }
 }
