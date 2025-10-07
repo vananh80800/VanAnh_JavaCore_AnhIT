@@ -21,6 +21,7 @@ public class Main {
             System.out.println("5. Sắp xếp xe theo giá tăng dần");
             System.out.println("6. Sắp xếp xe theo năm sản xuất giảm dần");
             System.out.println("0. Thoát");
+            System.out.println("===========================");
             System.out.print("Nhập lựa chọn: ");
             try {
                 choice = Integer.parseInt(sc.nextLine().trim()); // đọc dòng và parse thành int
@@ -63,41 +64,82 @@ public class Main {
         System.out.println("Chọn loại xe: 1.Car  2.Truck");
         int type = Integer.parseInt(sc.nextLine());
         if (type != 1 && type != 2) {
-            System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại");
+            System.out.println("Loại xe không hợp lệ. Vui lòng chọn lại");
             return; // thoát khỏi phương thức, không nhập tiếp
         }
         System.out.print("Brand: ");
         String brand = sc.nextLine();
         System.out.print("Model: ");
         String model = sc.nextLine();
-        System.out.print("Year: ");
-        int year = Integer.parseInt(sc.nextLine());
-        System.out.print("Price: ");
-        double price = Double.parseDouble(sc.nextLine());
+        int year;
+        while (true) {
+            System.out.print("Year: ");
+            try {
+                year = Integer.parseInt(sc.nextLine());
+                break; // nhập đúng -> thoát vòng lặp
+            } catch (NumberFormatException e) {
+                System.out.println("Năm phải là số ! Nhập lại:");
+            }
+        }
+        double price;
+        while (true) {
+            System.out.print("Price: ");
+            try {
+                price = Double.parseDouble(sc.nextLine());
+                break; // nhập đúng -> thoát vòng lặp
+            } catch (NumberFormatException e) {
+                System.out.println("Giá phải là số ! Nhập lại:");
+            }
+        }
         System.out.print("Color: ");
         String color = sc.nextLine();
 
-        if (type == 1) {
-            System.out.print("Seats: ");
-            int seats = Integer.parseInt(sc.nextLine());
-            // Tạo đối tượng Car và thêm vào danh sách
+
+        if (type == 1) { // Car
+            int seats;
+            while (true) {
+                System.out.print("Seats: ");
+                try {
+                    seats = Integer.parseInt(sc.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Số ghế phải là số nguyên ! Nhập lại:");
+                }
+            }
             Car car = new Car(brand, model, year, price, color, seats);
-            vehicles.add(car); // thêm vào ArrayList
+            vehicles.add(car);
             System.out.println("Đã thêm Car với ID: " + car.getId());
-        } else if (type == 2) {
-            System.out.print("Load Capacity: ");
-            double load = Double.parseDouble(sc.nextLine());
-            // Tạo đối tượng Truck và thêm vào danh sách
+
+        } else { // Truck
+            double load;
+            while (true) {
+                System.out.print("Load Capacity: ");
+                try {
+                    load = Double.parseDouble(sc.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Tải trọng phải là số ! Nhập lại:");
+                }
+            }
             Truck truck = new Truck(brand, model, year, price, color, load);
-            vehicles.add(truck); // thêm vào ArrayList
+            vehicles.add(truck);
             System.out.println("Đã thêm Truck với ID: " + truck.getId());
         }
+
     }
 
     // Xóa xe theo ID
     public static void removeVehicle() {
-        System.out.println("Nhập ID cần xóa: ");
-        int id = Integer.parseInt(sc.nextLine());
+        int id;
+        while (true) {
+            System.out.print("Nhập ID cần xóa: ");
+            try {
+                id = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số hợp lệ");
+            }
+        }
         boolean removed = false;// kiểm tra đã xóa hay chưa
         Iterator<Vehicle> it = vehicles.iterator(); // dùng Iterator để xóa an toàn khi duyệt
         while (it.hasNext()) {
@@ -114,6 +156,7 @@ public class Main {
             System.out.println("Không tìm thấy xe có ID = " + id);
         }
     }
+
 
     //Hiển thị danh sách xe
     public static void displayVehicles() {

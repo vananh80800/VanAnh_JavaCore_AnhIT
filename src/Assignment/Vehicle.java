@@ -102,6 +102,6 @@ public class Vehicle {
     // Override toString() để in thông tin xe
     @Override
     public String toString() {
-        return "ID: " + id + " |Brand: " + brand + " |Model: " + model + " |Year: " + year + " |Price: " + price + " |Color: " + color + " |Type: " + type;
+        return "ID: " + id + " |Brand: " + brand + " |Model: " + model + " |Year: " + year + " |Price: " + String.format("%.2f", this.price) + " |Color: " + color + " |Type: " + type;
     }
 }
